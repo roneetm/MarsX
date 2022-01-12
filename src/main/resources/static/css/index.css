@@ -1,0 +1,14 @@
+.img{
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(180, 178, 178, 0.815);
+}
+.card-body{
+    color: rgba(91, 91, 95, 0.988);
+}
+.modal-body{
+    background-size: cover;
+}
+
+.status{
+    color: green;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace=base::layout(~{::section})>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars X - 2020 Perseverance Rover Images</title>
+</head>
+
+<body>
+    <section>
+        <!--Nav Bar -->
+        <!-- <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <span class="navbar-brand mb-0 h1">MARS ROVER</span>
+            </div>
+        </nav> -->
+
+        <!-- Nab Bar -->
+        <header class="p-3 bg-dark text-white fixed-top">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <span class="navbar-brand mb-0 h1">MARS X</span>
+                </div>
+            </div>
+        </header>
+        <hr>
+
+        <!-- Jumbotron -->
+        <div class="p-5 mb-4 bg-dark text-white rounded-3">
+            <div class="container">
+                <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">Mars 2020 Perseverance Rover</h1>
+                    <p class="col-md-8 fs-4">Live <strong>Mars</strong> photos straight through Rover. Image data
+                        gathered by NASA's
+                        Perseverance Rover.
+                    </p>
+                    <!--                    <button class="btn btn-primary" type="button">Example button</button>-->
+                </div>
+            </div>
+        </div>
+
+        <!-- Iterating Over Data Set (Depricated) -->
+        <!-- <p>
+            <span th:each="photo: ${data}">
+                <span > <img th:each="photo: ${data}" th:src="${photo.img_src}"/> </span> <br/>
+                <span th:text="${photo.earth_date}"> Earth Date</span> <br/>
+                <span th:text="${photo.rover.name}"> Rover Name </span> <br/>
+                <span th:text="${photo.rover.landing_date}"> Landing Date</span> <br/>
+                <span th:text="${photo.rover.launch_date}"> Launch Date</span> <br/>
+            </span>
+        </p> -->
+
+        <!-- Iterating Over Dataset -->
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col" th:each="photo: ${data}">
+                        <div class="card shadow-sm h-100">
+                            <img th:src="${photo.img_src}" alt="" class="">
+
+                            <!-- Implementing Image Modal -->
+
+
+                            <!-- Button trigger modal -->
+                            <!--                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"-->
+                            <!--                                data-bs-target='#exampleModal'>-->
+                            <!--                                Zoom Image-->
+                            <!--                            </button>-->
+
+                            <!-- Image Zoom Modal -->
+                            <!--                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"-->
+                            <!--                                aria-hidden="true">-->
+                            <!--                                <div class="modal-dialog modal-xl">-->
+                            <!--                                    <div class="modal-content">-->
+                            <!--                                        <div class="modal-header">-->
+                            <!--                                            <button type="button" class="btn-close" data-bs-dismiss="modal"-->
+                            <!--                                                aria-label="Close"></button>-->
+                            <!--                                        </div>-->
+                            <!--                                        <div class="modal-body align-items-center">-->
+                            <!--                                            <img th:src="${photo.img_src}" alt="" class="w-75">-->
+                            <!--                                        </div>-->
+                            <!--                                        <div class="modal-footer">-->
+                            <!--                                            <button type="button" class="btn btn-secondary"-->
+                            <!--                                                data-bs-dismiss="modal">Close</button>-->
+                            <!--                                        </div>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+
+                            <!-- End Of Image Modal -->
+
+                            <div class="card-body">
+                                <h6><strong>Rover Name: </strong> <span th:text="${photo.rover.name}"> </span></h6>
+                                <h6><strong>Camera Name: </strong> <span th:text="${photo.camera.full_name}"> </span>
+                                </h6>
+                                <hr>
+                                <h6> <strong>Earth Date: </strong> <span th:text="${photo.earth_date}"></span> </h6>
+                                <h6><strong>Landing Date: </strong><span th:text="${photo.rover.landing_date}"> </span>
+                                </h6>
+                                <h6><strong>Launch Date: </strong><span th:text="${photo.rover.launch_date}"></span>
+                                    <h6><strong>Rover Status: </strong><span class="status"
+                                            th:text="${photo.rover.status}"></span>
+                                    </h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--                    &lt;!&ndash; Pagination &ndash;&gt;-->
+                    <!--                    <nav aria-label="...">-->
+                    <!--                        <ul class="pagination">-->
+                    <!--                            <li class="page-item disabled">-->
+                    <!--                                <span class="page-link">Previous</span>-->
+                    <!--                            </li>-->
+                    <!--                            <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+                    <!--                            <li class="page-item active" aria-current="page">-->
+                    <!--                                <span class="page-link">2</span>-->
+                    <!--                            </li>-->
+                    <!--                            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+                    <!--                            <li class="page-item">-->
+                    <!--                                <a class="page-link" href="#">Next</a>-->
+                    <!--                            </li>-->
+                    <!--                        </ul>-->
+                    <!--                    </nav>-->
+                    <!--                    &lt;!&ndash;  Pagination Ends&ndash;&gt;-->
+
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <div class="container" style="padding-top: 20px;">
+                <h3>Credits</h3>
+                <p class="fs-5 col-md-8">All images belongs to NASA and 
+                    <a href="https://api.nasa.gov/" target="_blank" >Mars Rover Photos API.</a>
+                    No copyright infringment intended. <br>
+                    For educational purpose only.
+                </p>
+            </div>
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer class="footer mt-auto py-3 bg-dark">
+            <div class="container">
+                <span class="text-muted">Made by Roneet Michael.</span>
+
+            </div>
+        </footer>
+    </section>
+</body>
+
+</html>
