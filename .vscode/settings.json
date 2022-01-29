@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/62f0bcee-2423-49ba-b019-46aaa1691268/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/MarsX",
+    "appService.deploySubpath": "."
+}
